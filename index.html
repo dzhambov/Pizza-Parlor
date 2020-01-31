@@ -8,6 +8,44 @@
   <title>Pizza Parlor</title>
 </head>
 <body>
-  
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Pizza Parlor</h1>
+    </div>
+    <form id="pizzaOrder">
+      <div class="form-group">
+        <label for="phone-number">Please Enter Your Phone Number</label>
+        <input type="text" id="phone-number">
+        <h3>Please Select Your Pizza Size:</h3>
+        <input type="checkbox" name="pie-size" value="small-10">Small. <br>
+        <input type="checkbox" name="pie-size" value="medium-12">Medium. <br>
+        <input type="checkbox" name="pie-size" value="large-14">Large. <br>
+      </div>
+      <div class="form-group">
+        <h3>Please Select Your Toppings</h3>
+        <input type="checkbox" name="pizza-toppings" value="meatballs-2">Meatballs<br>
+        <input type="checkbox" name="pizza-toppings" value="pepperoni-2">Pepperoni<br>
+        <input type="checkbox" name="pizza-toppings" value="bacon-2">Bacon<br>
+        <input type="checkbox" name="pizza-toppings" value="chicken-2">Chicken<br>
+        <input type="checkbox" name="pizza-toppings" value="mushrooms-1">Mushrooms<br>
+        <input type="checkbox" name="pizza-toppings" value="onions-1">Onions<br>
+        <input type="checkbox" name="pizza-toppings" value="peppers-1">Peppers<br>
+        <input type="checkbox" name="pizza-toppings" value="olives-1">Olives<br>
+        <input type="checkbox" name="pizza-toppings" value="artichocks-1">Artichocks<br>
+      </div>
+      <button type="submit" class="btn btn-success" id="order">Place Your Order</button>
+    </form>
+    <div id="show-pizza">
+      <h3>Order Summary
+        <ul class="pizzas"></ul>
+        <p>Pizza Size:<span id="pizza-size-responses"></span></p>
+        <p>Pizza Toppings:<span id="pizza-size-toppings"></span></p>
+        <p>Phone Number:<span id="phone-number"></span></p>
+      </h3>
+    </div>
+    <div id="buttons">
+      
+    </div>
+  </div>
 </body>
 </html>
