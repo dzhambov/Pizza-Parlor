@@ -23,12 +23,17 @@ TotalOrder.prototype.findPizza = function(id) {
   return false;
 }
 
-function Pizza(size,toppings, numPizzas){
+function Pizza(size, toppings, numPizzas) {
   this.size = size;
   this.toppings = toppings;
   this.numPizzas = numPizzas;
 }
 
+// Pizza.prototype.getPrice = function() {
+//   var price = 10;
+
+//   if(this.size === "small")
+// }
 Pizza.prototype.yourPizza = function() {
   return this.size + " " + this.toppings + " " + this.numPizzas;
 }
@@ -64,7 +69,7 @@ $(document).ready(function() {
     var inputtedPhoneNumber = $("input#phone-number").val();
     var newPizza = new Pizza(checkedPieSize, checkedPizzaToppings,numPizzas, inputtedPhoneNumber);
     totalOrder.addPizza(newPizza);
-    displayPizzaDetails(totalOrder);
+    displayPizzaDetails(newPizza);
   
   });
 });
