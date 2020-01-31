@@ -27,21 +27,23 @@ function Pizza(size, toppings, numPizzas) {
   this.size = size;
   this.toppings = toppings;
   this.numPizzas = numPizzas;
+  this.phoneNumber = phoneNumber;
 }
 
-// Pizza.prototype.getPrice = function() {
-//   var price = 10;
+Pizza.prototype.getPrice = function() {
+  var price = 10;
 
-//   if(this.size === "small")
-// }
-Pizza.prototype.yourPizza = function() {
-  return this.size + " " + this.toppings + " " + this.numPizzas;
+  if(this.size === "small") {
+    price + 2;
+} else if (this.size === "medium") {
+    price + 4;
+} else if (this.size === "large") {
+  price +6;
 }
+  price *= this.numPizzas;
+  return price;
 
-
-// User Interface
-
-var totalOrder = new TotalOrder();
+// User Interface Logic
 
 function displayPizzaDetails(totalOrderToDisplay) {
   var pizzaList = $("ul#pizzas");
