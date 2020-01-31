@@ -23,7 +23,7 @@ TotalOrder.prototype.findPizza = function(id) {
   return false;
 }
 
-function Pizza(size, toppings, numPizzas) {
+function Pizza(size, toppings, numPizzas, phoneNumber) {
   this.size = size;
   this.toppings = toppings;
   this.numPizzas = numPizzas;
@@ -31,17 +31,26 @@ function Pizza(size, toppings, numPizzas) {
 }
 
 Pizza.prototype.getPrice = function() {
-  var price = 10;
+  var price = 0;
 
   if(this.size === "small") {
-    price + 2;
-} else if (this.size === "medium") {
-    price + 4;
-} else if (this.size === "large") {
-  price +6;
-}
+      price = 12;
+  } else if (this.size === "medium") {
+      price = 14;
+  } else if (this.size === "large") {
+      price = 16;
+  }
+
+  if (this.toppings === 2) {
+    price += 2;
+  } else if (this.toppings === 1) {
+    price += 1;
+  } else {
+
+  }
   price *= this.numPizzas;
   return price;
+}
 
 // User Interface Logic
 
