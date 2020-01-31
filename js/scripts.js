@@ -38,11 +38,33 @@ Pizza.prototype.yourPizza = function() {
 
 var totalOrder = new TotalOrder();
 
+function displayPizzaDetails(totalOrderToDisplay) {
+  var pizzaList = $("ul#pizzas");
+  var htmlForPizzaInfo = "";
+  totalOrderToDisplay.pizzas.forEach(function(pizza) {
+    htmlForPizzaInfo += "<li id=" + pizza.id + ">" + pizza.Size + " " + pizza.toppings + "</li>";
+  });
+  pizzasList.html(htmlForPizzaInfo);
+};
+
 $(document).ready(function() {
   $("form#pizzaOrder").submit(function(event) {
     event.preventDefault();
     $("input:checkbox[name=pie-size]:checked").each(function() {
-      var pieSize = $(this).val();
-    })
+      var checkedPieSize = $(this).val();
+      console.log(checkedPieSize);
+      
+    });
+
+  $("input:checkbox[name=pizza-toppings]:checked").each(function() {
+    var checkedPizzaToppings = $(this).val();
+    console.log(checkedPizzaToppings);
+    
+  });
+    var inputtedPhoneNumber = $("input#phone-number").val();
+    var newPizza = new Pizza(checkedPieSize, checkedPizzaToppings,numPizzas, inputtedPhoneNumber);
+    totalOrder.addPizza(newPizza);
+    displayPizzaDetails(totalOrder);
+  
   });
 });
