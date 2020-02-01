@@ -36,7 +36,6 @@ Pizza.prototype.getPrice = function() {
   });
   
   this.price = price;
-  console.log(price);
 }
 
 function TotalOrder(name, phoneNumber) {
@@ -46,51 +45,41 @@ function TotalOrder(name, phoneNumber) {
 }
 
 TotalOrder.prototype.addPizza = function(pizza) {
-  pizza.newPrice();
+  // pizza.newPrice();
   this.pizzas.push(pizza);
 }
-TotalOrder.prototype.TotalPrice = function {
+TotalOrder.prototype.TotalPrice = function() {
   var totalPrice = 0;
   this.pizzas.forEach(function(pizza) {
     totalPrice += pizza.price;
   });
   this.totalPrice = totalPrice;
+  console.log(totalPrice);
+  
 }
 
 // User Interface Logic
 
 var totalOrder = new TotalOrder();
 
-function displayPizzaDetails(totalOrderToDisplay) {
-  var pizzasList = $("#show-pizza");
-  var htmlForPizzaInfo = "";
-  totalOrderToDisplay.pizzas.forEach(function(pizza) {
-    htmlForPizzaInfo += "<li id=" + pizza.id + ">" + pizza.Size + " " + pizza.toppings + " " + pizza.numPizzas + " " + pizza.phoneNumber + "</li>";
-  });
-  pizzasList.html(htmlForPizzaInfo);
-  // console.log(pizzasList);
-  
-};
 
 $(document).ready(function() {
   $("form#pizzaOrder").submit(function(event) {
     event.preventDefault();
-    var inputtedPieSize;
+    var pieSize = [];
     $("input:checkbox[name=pie-size]:checked").each(function() {
-      inputtedPieSize = $(this).val();
-      // console.log(inputedPieSize);
+      var inputtedPieSize = $(this).val();
+      pieSize.push(inputtedPieSize);
     });
-    var inputtedPizzaToppings;
-    $("input:checkbox[name=pizza-toppings]:checked").each(function() {
-      inputtedPizzaToppings = $(this).val();
-      // console.log(inputedPizzaToppings);
+    var meatToppings = [];
+    $("input:checkbox[name=meat-toppings]:checked").each(function() {
+      var inputtedMeatToppings = $(this).val();
+      meatToppings.push(inputtedMeatToppings);
+    });
 
-    });
     var inputtedPhoneNumber = $("input#phone-number").val();
-    var inputtedNumPizzas = $("select#numPizzas").val();
-    var newPizza = new Pizza(inputtedPieSize,inputtedPizzaToppings, inputtedPhoneNumber, numPizzas);
+    var newPizza = new Pizza(pieSize,meatToppings, inputtedPhoneNumber, numPizzas);
     totalOrder.addPizza(newPizza);
-    displayPizzaDetails(totalOrder); 
     console.log(newPizza);
   });
 });
