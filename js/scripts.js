@@ -1,4 +1,24 @@
 // Business Logic
+
+// Business logic for total order
+function TotalOrder(name, phoneNumber) {
+  this.name = name;
+  this.phoneNumber = phoneNumber;
+  this.pizzas = [];
+  this.currentId = 0;
+}
+
+TotalOrder.prototype.addPizza = function(pizza) {
+  pizza.id = this.assignId();
+  this.pizzas.push(pizza);
+}
+
+TotalOrder.prototype.assignId = function() {
+  this.currentId += 1;
+  return this.currentId;
+}
+
+// Business logic for pizza 
 function Pizza(size) {
   this.size = size;
   this.meatToppings = [];
@@ -26,7 +46,7 @@ Pizza.prototype.getPrice = function() {
     price = 18;
   }
   
-  this.meatToppings.forEach(function(meatToppings) {
+  this.meatToppings.forEach(function() {
     price += 2;
   });
   
@@ -34,45 +54,33 @@ Pizza.prototype.getPrice = function() {
     price += 1;
   });
   
-  console.log(price);
-  return price;
+  price;
 }
 
-function TotalOrder(name, phoneNumber) {
-  this.pizzas = [];
-  this.name = name;
-  this.phoneNumber = phoneNumber;
-}
 
-TotalOrder.prototype.addPizza = function(pizza) {
-  // pizza.newPrice();
-  this.pizzas.push(pizza);
-}
 TotalOrder.prototype.TotalPrice = function() {
   var totalPrice = 0;
   this.pizzas.forEach(function(pizza) {
     totalPrice += pizza.price;
-    console.log(totalPrice);
+    this.totalPrice = totalPrice;
+    $("#order-summary").append(totalPrice);
   });
-  this.totalPrice = totalPrice;
-  
 }
 
 // User Interface Logic
 
 var totalOrder = new TotalOrder();
 
-
 $(document).ready(function() {
   $("form#pizzaOrder").submit(function(event) {
     event.preventDefault();
-
+    
     var pieSize = [];
     $("input:checkbox[name=pie-size]:checked").each(function() {
       var inputtedPieSize = $(this).val();
       pieSize.push(inputtedPieSize);
     });
-
+    
     var meatToppings = [];
     $("input:checkbox[name=meat-toppings]:checked").each(function() {
       var inputtedMeatToppings = $(this).val();
@@ -83,20 +91,20 @@ $(document).ready(function() {
       var inputtedVegToppings = $(this).val();
       vegToppings.push(inputtedVegToppings);
     });
-  
-      var orderName = $("#name").val();
-      $(".name").append(orderName);
-      
-      var phoneNumber = $("input#phone-number").val();
-      $(".phone-number").append(phoneNumber);
-      
-      var newPizza = new Pizza(pieSize);
+    
+    var orderName = $("#name").val();
+    var phoneNumber = $("input#phone-number").val(); 
+    console.log(orderName,phoneNumber);
+    
+    var newPizza = new Pizza(pieSize);
       $("input:checkbox[name=meat-toppings]:checked").each(function() {
         newPizza.addMeat($(this).val());
       });
       $("input:checkbox[name=veg-toppings]:checked").each(function() {
         newPizza.addVeggie($(this).val());
       });
+      $(".name").append(orderName);
+      $(".phone-number").append(phoneNumber);
       totalOrder.addPizza(newPizza);
     console.log(newPizza);
     
