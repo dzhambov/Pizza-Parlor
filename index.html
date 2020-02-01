@@ -17,21 +17,24 @@
         <label for="phone-number">Please Enter Your Phone Number</label>
         <input type="text" id="phone-number">
         <h3>Please Select Your Pizza Size:</h3>
-        <input type="checkbox" name="pie-size" value="small-10">Small. <br>
-        <input type="checkbox" name="pie-size" value="medium-12">Medium. <br>
-        <input type="checkbox" name="pie-size" value="large-14">Large. <br>
+        <input type="checkbox" name="pie-size" value="small-12">Small. $12 <br>
+        <input type="checkbox" name="pie-size" value="medium-14">Medium. $14<br>
+        <input type="checkbox" name="pie-size" value="large-16">Large. $16<br>
+        <input type="checkbox" name="pie-size" value="extra-large-18">Extra Large. $18 <br>
       </div>
       <div class="form-group">
         <h3>Please Select Your Toppings</h3>
-        <input type="checkbox" name="pizza-toppings" value="meatballs-2">Meatballs<br>
-        <input type="checkbox" name="pizza-toppings" value="pepperoni-2">Pepperoni<br>
-        <input type="checkbox" name="pizza-toppings" value="bacon-2">Bacon<br>
-        <input type="checkbox" name="pizza-toppings" value="chicken-2">Chicken<br>
-        <input type="checkbox" name="pizza-toppings" value="mushrooms-1">Mushrooms<br>
-        <input type="checkbox" name="pizza-toppings" value="onions-1">Onions<br>
-        <input type="checkbox" name="pizza-toppings" value="peppers-1">Peppers<br>
-        <input type="checkbox" name="pizza-toppings" value="olives-1">Olives<br>
-        <input type="checkbox" name="pizza-toppings" value="artichocks-1">Artichocks<br>
+        <input type="checkbox" name="meat-toppings" value="meatballs-2">Meatballs<br>
+        <input type="checkbox" name="meat-toppings" value="pepperoni-2">Pepperoni<br>
+        <input type="checkbox" name="meat-toppings" value="bacon-2">Bacon<br>
+        <input type="checkbox" name="meat-toppings" value="chicken-2">Chicken<br>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" name="veg-toppings" value="mushrooms-1">Mushrooms<br>
+        <input type="checkbox" name="veg-toppings" value="onions-1">Onions<br>
+        <input type="checkbox" name="veg-toppings" value="peppers-1">Peppers<br>
+        <input type="checkbox" name="veg-toppings" value="olives-1">Olives<br>
+        <input type="checkbox" name="veg-toppings" value="artichocks-1">Artichocks<br>
       </div>
       <div class="form-group">
         <label for="numPizzas">Number of Pizzas</label>
@@ -45,7 +48,7 @@
       </div>
       <button type="submit" class="btn btn-success" id="order">Place Your Order</button>
     </form>
-    <div id="show-pizza">
+    <div id="order-summary">
       <h3>Order Summary
         <ul class="pizzas"></ul>
         <p>Pizza Size:<span class="pie-size-responses"></span></p>
