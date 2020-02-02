@@ -105,10 +105,11 @@ $(document).ready(function() {
       $("input:checkbox[name=veg-toppings]:checked").each(function() {
         newPizza.addVeggie($(this).val());
       });
-      $(".name").append(orderName);
+      $(".name").append(" " + "<em>" + orderName + "</em>");
       $(".phone-number").append(phoneNumber);
+      $(".pie-size").append(" " + pieSize)
       totalOrder.addPizza(newPizza);
-      $("#total-order").append(totalOrder.TotalPrice());
+      $("#total-order").append("$" + totalOrder.TotalPrice());
       $("#order-summary").show();
     console.log(totalOrder);
 
